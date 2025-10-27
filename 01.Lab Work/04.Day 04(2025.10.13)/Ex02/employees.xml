@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employees xmlns="http://example.com/employees">
+  <employee empId="E101">
+    <name>Jane Smith</name>
+    <department>HR</department>
+    <email>jane.smith@example.com</email>
+    <employmentType>Full-Time</employmentType>
+    <joinDate>2021-03-15</joinDate>
+  </employee>
+
+  <employee empId="E102">
+    <name>Mark Johnson</name>
+    <department>IT</department>
+    <email>mark.johnson@example.com</email>
+    <phone>1234567890</phone>
+    <employmentType>Contract</employmentType>
+    <joinDate>2022-01-10</joinDate>
+  </employee>
+</employees>

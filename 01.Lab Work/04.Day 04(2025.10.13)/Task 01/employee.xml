@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employee xmlns="http://example.com/employee">
+    <firstname>Priya</firstname>
+    <salary>45000.50</salary>
+    <hiredata>2020-11-01</hiredata>
+</employee>

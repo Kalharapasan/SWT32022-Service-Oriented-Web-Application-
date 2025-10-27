@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://example.com/employees"
+           xmlns="http://example.com/employees"
+           elementFormDefault="qualified">
+
+  <!-- Root Element -->
+  <xs:element name="employees">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="employee" type="EmployeeType" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Complex Type for Each Employee -->
+  <xs:complexType name="EmployeeType">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="department" type="xs:string"/>
+      <xs:element name="email" type="xs:string"/>
+      <xs:element name="phone" type="xs:string" minOccurs="0"/>
+      <xs:element name="employmentType" type="EmploymentType"/>
+      <xs:element name="joinDate" type="xs:date"/>
+    </xs:sequence>
+    <xs:attribute name="empId" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <!-- Enumeration for Employment Type -->
+  <xs:simpleType name="EmploymentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Full-Time"/>
+      <xs:enumeration value="Part-Time"/>
+      <xs:enumeration value="Contract"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

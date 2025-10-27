@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://example.com/bookstore"
+           xmlns="http://example.com/bookstore"
+           elementFormDefault="qualified">
+
+  <xs:element name="bookstore">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="book" type="BookType" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="BookType">
+    <xs:sequence>
+      <xs:element name="title" type="xs:string"/>
+      <xs:element name="author" type="xs:string"/>
+      <xs:element name="price" type="xs:decimal"/>
+      <xs:element name="discount" type="DiscountType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="category" type="CategoryType" use="required"/>
+    <xs:attribute name="language" type="xs:string" use="optional"/>
+  </xs:complexType>
+
+  <xs:simpleType name="DiscountType">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="CategoryType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Fiction"/>
+      <xs:enumeration value="Non-Fiction"/>
+      <xs:enumeration value="Programming"/>
+      <xs:enumeration value="Science"/>
+      <xs:enumeration value="History"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

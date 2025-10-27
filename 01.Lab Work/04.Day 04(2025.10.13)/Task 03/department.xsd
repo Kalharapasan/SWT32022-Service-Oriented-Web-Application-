@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://example.com/department"
+           xmlns="http://example.com/department"
+           elementFormDefault="qualified">
+
+  <xs:element name="Department">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="HR"/>
+        <xs:enumeration value="IT"/>
+        <xs:enumeration value="Finance"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+</xs:schema>
