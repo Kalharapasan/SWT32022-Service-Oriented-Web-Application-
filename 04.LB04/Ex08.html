@@ -1,0 +1,18 @@
+<!-- JSON.parse() (JSON → Object) -->
+ <!DOCTYPE html>
+<html>
+<body>
+
+<h3>JSON.parse Test</h3>
+<p id="demo"></p>
+
+<script>
+var jsonText = '{"name":"Anna","age":22,"city":"Kandy"}';
+var obj = JSON.parse(jsonText);
+
+document.getElementById("demo").innerHTML =
+obj.name + "<br>" + obj.age + "<br>" + obj.city;
+</script>
+
+</body>
+</html>

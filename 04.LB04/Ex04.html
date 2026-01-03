@@ -1,0 +1,16 @@
+<!-- Example 4: JSON Array -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var carsJSON = '["Ford","BMW","Fiat"]';
+var cars = JSON.parse(carsJSON);
+
+document.getElementById("demo").innerHTML = cars[1];
+</script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<table border="1" id="table"></table>
+
+<script>
+var xhttp = new XMLHttpRequest();
+xhttp.onload = function() {
+  var data = JSON.parse(this.responseText);
+  var table = "<tr><th>Name</th><th>Age</th><th>City</th></tr>";
+
+  for (var i in data) {
+    table += "<tr><td>" + data[i].name + "</td><td>" +
+             data[i].age + "</td><td>" +
+             data[i].city + "</td></tr>";
+  }
+  document.getElementById("table").innerHTML = table;
+}
+xhttp.open("GET", "data.json", true);
+xhttp.send();
+</script>
+
+</body>
+</html>

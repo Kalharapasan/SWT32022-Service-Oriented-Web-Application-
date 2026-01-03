@@ -1,0 +1,22 @@
+<!-- Example 3: Store JSON in Local Storage -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var employee = {
+  name: "John",
+  age: 31,
+  city: "New York"
+};
+
+localStorage.setItem("emp", JSON.stringify(employee));
+
+var data = JSON.parse(localStorage.getItem("emp"));
+document.getElementById("demo").innerHTML = data.name;
+</script>
+
+</body>
+</html>
