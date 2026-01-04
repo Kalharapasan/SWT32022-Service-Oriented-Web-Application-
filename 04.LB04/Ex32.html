@@ -1,0 +1,35 @@
+<!-- Modify Value in JSON Object -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Modify Value</h2>
+
+<p id="demo"></p>
+
+<script>
+    var myObj, i, x = "";
+
+    myObj = {
+        "name": "John",
+        "age": 30,
+        "cars": {
+            "car1": "Ford",
+            "car2": "BMW",
+            "car3": "Fiat"
+        }
+    };
+
+    // Modify value using dot notation
+    myObj.cars.car2 = "Mercedes";
+
+    // Loop through object
+    for (i in myObj.cars) {
+        x += myObj.cars[i] + "<br>";
+    }
+
+    document.getElementById("demo").innerHTML = x;
+</script>
+
+</body>
+</html>
