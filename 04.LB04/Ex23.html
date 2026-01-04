@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Convert a string into a date object</h2>
+
+<p id="demo"></p>
+
+<script>
+    // JSON data with date as a string
+    var text = '{"name":"John","birth":"1986-12-14","city":"New York"}';
+
+    // Convert JSON string to JavaScript object
+    var obj = JSON.parse(text);
+
+    // Convert string to Date object
+    obj.birth = new Date(obj.birth);
+
+    // Display data
+    document.getElementById("demo").innerHTML =
+        obj.name + ", " + obj.birth;
+</script>
+
+</body>
+</html>
