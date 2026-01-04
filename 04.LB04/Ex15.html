@@ -1,0 +1,29 @@
+<!-- Sending Data (JavaScript Object → JSON) -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sending Data Example</title>
+</head>
+<body>
+
+<h2>Car Details (JSON)</h2>
+
+<p id="demo"></p>
+
+<script>
+    // Step 1: Create a JavaScript object
+    var car = {
+        type: "Vitz",
+        color: "White",
+        model: "2018"
+    };
+
+    // Step 2: Convert JavaScript object to JSON
+    var carDetails = JSON.stringify(car);
+
+    // Step 3: Display JSON data
+    document.getElementById("demo").innerHTML = carDetails;
+</script>
+
+</body>
+</html>
