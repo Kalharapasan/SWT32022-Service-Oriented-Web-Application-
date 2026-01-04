@@ -1,0 +1,26 @@
+<!-- Accessing Object Values using for-in Loop -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Accessing Object Values</h2>
+
+<p id="demo"></p>
+
+<script>
+    var myObj, x;
+
+    myObj = {
+        "name": "John",
+        "age": 30,
+        "car": null
+    };
+
+    // Loop through object and access values using bracket notation
+    for (x in myObj) {
+        document.getElementById("demo").innerHTML += myObj[x] + "<br>";
+    }
+</script>
+
+</body>
+</html>
