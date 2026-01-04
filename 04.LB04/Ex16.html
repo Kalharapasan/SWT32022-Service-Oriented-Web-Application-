@@ -1,0 +1,28 @@
+<!-- HTML + JavaScript Example -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Receiving Data Example</title>
+</head>
+<body>
+
+<h2>Student Details</h2>
+
+<p id="demo"></p>
+
+<script>
+    // Step 1: JSON data received (as string)
+    var student = '{"name":"John","age":21,"city":"Colombo"}';
+
+    // Step 2: Convert JSON to JavaScript object
+    var JSObject = JSON.parse(student);
+
+    // Step 3: Display data
+    document.getElementById("demo").innerHTML =
+        "Student Name: " + JSObject.name + "<br>" +
+        "Age: " + JSObject.age + "<br>" +
+        "City: " + JSObject.city;
+</script>
+
+</body>
+</html>
