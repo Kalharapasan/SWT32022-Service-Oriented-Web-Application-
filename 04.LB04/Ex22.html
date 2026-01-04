@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Array as JSON</h2>
+
+<p id="demo"></p>
+
+<script>
+    // Create XMLHttpRequest object
+    var xmlhttp = new XMLHttpRequest();
+
+    // Define callback function
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+            // Parse JSON array
+            var myArr = JSON.parse(xmlhttp.responseText);
+
+            // Display first element of array
+            document.getElementById("demo").innerHTML = myArr[0];
+        }
+    };
+
+    // Request JSON array file from server
+    xmlhttp.open("GET", "json_array_demo.txt", true);
+    xmlhttp.send();
+</script>
+
+</body>
+</html>
