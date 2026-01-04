@@ -1,2 +1,33 @@
 <!-- Storing Data -->
- 
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Storing Data Example</title>
+</head>
+<body>
+
+<h2>Employee Data Stored</h2>
+
+<p id="demo"></p>
+
+<script>
+    // Step 1: Create JavaScript object
+    var employee = {
+        name: "John",
+        age: 31,
+        city: "New York"
+    };
+
+    // Step 2: Convert object to JSON
+    var employeeJSON = JSON.stringify(employee);
+
+    // Step 3: Store JSON data in localStorage
+    localStorage.setItem("testing", employeeJSON);
+
+    // Display confirmation
+    document.getElementById("demo").innerHTML =
+        "Employee data stored successfully!";
+</script>
+
+</body>
+</html>
