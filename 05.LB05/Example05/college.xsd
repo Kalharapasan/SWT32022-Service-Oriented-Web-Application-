@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://example.com/college"
+           xmlns="http://example.com/college"
+           elementFormDefault="qualified">
+
+    <!-- Root Element -->
+    <xs:element name="college">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="collegeName" type="xs:string"/>
+                <xs:element name="establishedYear" type="xs:integer"/>
+
+                <xs:element name="departments">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="department" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+
+                                        <xs:element name="deptName" type="xs:string"/>
+
+                                        <!-- Faculty List -->
+                                        <xs:element name="facultyList">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="faculty" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="facultyId" type="xs:string"/>
+                                                                <xs:element name="name" type="xs:string"/>
+                                                                <xs:element name="designation" type="xs:string"/>
+                                                                <xs:element name="experience" type="xs:integer"/>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+
+                                        <!-- Students -->
+                                        <xs:element name="students">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="student" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="name" type="xs:string"/>
+                                                                <xs:element name="year" type="xs:integer"/>
+                                                                <xs:element name="cgpa" type="xs:decimal"/>
+                                                            </xs:sequence>
+                                                            <xs:attribute name="regNo" type="xs:string" use="required"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+
+                                    </xs:sequence>
+                                    <xs:attribute name="deptCode" type="xs:string" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
