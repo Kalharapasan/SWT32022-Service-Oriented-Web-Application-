@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Parsing Functions in JSON</h2>
+
+<p id="demo"></p>
+
+<script>
+    // JSON data with function written as a string
+    var text = '{"name":"John","age":"function () { return 30; }","city":"New York"}';
+
+    // Convert JSON string to JavaScript object
+    var obj = JSON.parse(text);
+
+    // Convert string into function
+    obj.age = eval("(" + obj.age + ")");
+
+    // Display data
+    document.getElementById("demo").innerHTML =
+        obj.name + ", " + obj.age();
+</script>
+
+</body>
+</html>
