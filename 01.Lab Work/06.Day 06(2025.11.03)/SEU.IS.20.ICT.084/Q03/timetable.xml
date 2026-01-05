@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timeTable>
+    <Period id="1" day="Mon Day">
+        <subject>OOD</subject>
+        <time>8.00</time>
+        <lecturerName>Kalhara</lecturerName>
+    </Period>
+    <Period id="2" day="Tue Day">
+        <subject>NetWorke</subject>
+        <time>10.35</time>
+        <lecturerName>Damith</lecturerName>
+    </Period>
+    <Period id="3" day="Wens Day">
+        <subject>Progrming</subject>
+        <time>9.00</time>
+        <lecturerName>Kasun</lecturerName>
+    </Period>
+    <Period id="4" day="The Day">
+        <subject>Java Web Development</subject>
+        <time>2.00</time>
+        <lecturerName>Samitha</lecturerName>
+    </Period>
+    <Period id="5" day="Fri Day">
+        <subject>OOAD</subject>
+        <time>8.00</time>
+        <lecturerName>Ishara</lecturerName>
+    </Period>
+    <period id="6" day="sun Day">
+        <subject>C++ Progrmin</subject>
+        <time>3.00</time>
+        <lecturerName>Kalhara</lecturerName>
+    </period>
+</timeTable>

@@ -1,0 +1,16 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<soap:Envelope>
+    <!-- Header -->
+    <soap:Header>
+        <authentication>
+            <username>abc@gmail.com</username>
+            <password>1234</password>
+        </authentication>
+    </soap:Header>
+    <!-- Body -->
+    <soap:Body>
+        <getBookInfo>
+            <BookID>B0001</BookID>
+        </getBookInfo>
+    </soap:Body>
+</soap:Envelope>

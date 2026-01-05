@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><wsdd:deployment xmlns:wsdd="http://xml.apache.org/axis/wsdd/" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:name.com="http://name.com">
+  <wsdd:service name="Hello" provider="java:RPC" use="literal" style="wrapped">
+    <wsdd:parameter name="wsdlTargetNamespace" value="http://name.com"/>
+    <wsdd:parameter name="wsdlServiceElement" value="HelloService"/>
+    <wsdd:parameter name="schemaQualified" value="http://name.com"/>
+    <wsdd:parameter name="wsdlServicePort" value="Hello"/>
+    <wsdd:parameter name="className" value="com.name.Hello"/>
+    <wsdd:parameter name="wsdlPortType" value="Hello"/>
+    <wsdd:parameter name="typeMappingVersion" value="1.2"/>
+    <wsdd:parameter name="allowedMethods" value="sayHello"/>
+    <wsdd:operation name="sayHello" qname="name.com:sayHello" returnQName="name.com:sayHelloReturn" returnType="XMLSchema:string" soapAction="">
+      <wsdd:parameter qname="name.com:name" type="XMLSchema:string"/>
+    </wsdd:operation>
+  </wsdd:service>
+</wsdd:deployment>

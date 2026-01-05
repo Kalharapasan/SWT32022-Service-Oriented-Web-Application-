@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q05</title>
+</head>
+<body>
+    
+    <p>Students List</p>
+   <table id="list" border="1">
+    <tr>
+        <th>Name</th>
+        <th>GPA</th>
+    </tr>
+   </table>
+
+    <script>
+        const list = document.getElementById("list");
+        const parser = new DOMParser();
+
+        fetch('students.xml')
+            .then(response => response.text())
+            .then(xmlText => {
+                const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+                const students = xmlDoc.getElementsByTagName('student');
+
+                for (let i = 0; i < students.length; i++) {
+                    const std = students[i];
+                    
+                    const gpa =std.getElementsByTagName('gpa')[0]?.textContent.trim() || '';
+                    
+                    if(gpa >=3.5){
+                        const name = std.getElementsByTagName('name')[0]?.textContent.trim() || '';
+                        const row = document.createElement('tr');
+                         row.innerHTML = `
+                            <td>${name}</td>
+                            <td>${gpa}</td>
+                        `;
+                        list.appendChild(row);
+
+                    console.log(name);
+                    }
+                    
+                }
+            })
+            .catch(err => {
+                console.error('Failed to load or parse students.xml:', err);
+                const row = document.createElement('tr');
+                row.innerHTML = `<td colspan="7">Failed to load students data.</td>`;
+                list.appendChild(row);
+            });
+    </script>
+    
+</body>
+</html>

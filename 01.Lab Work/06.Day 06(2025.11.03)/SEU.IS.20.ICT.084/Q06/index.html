@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Q06</title>
+</head>
+<body>
+  <p><strong>Old Book Table</strong></p>
+  <table id="oldlist" border="1">
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Price</th>
+    </tr>
+  </table>
+
+  <p><strong>Updated Book Table</strong></p>
+  <table id="UpdateList" border="1">
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Price</th>
+    </tr>
+  </table>
+
+  <script>
+    const oldlist = document.getElementById("oldlist");
+    const updatelist = document.getElementById("UpdateList");
+    const parser = new DOMParser();
+
+    fetch('library.xml')
+      .then(response => response.text())
+      .then(xmlText => {
+        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+        const books = xmlDoc.getElementsByTagName('book');
+
+        
+        for (let i = 0; i < books.length; i++) {
+          const title = books[i].getElementsByTagName('title')[0]?.textContent.trim() || '';
+          const author = books[i].getElementsByTagName('author')[0]?.textContent.trim() || '';
+          const price = books[i].getElementsByTagName('price')[0]?.textContent.trim() || '';
+
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${title}</td>
+            <td>${author}</td>
+            <td>${price}</td>
+          `;
+          oldlist.appendChild(row);
+        }
+
+        
+        if (books[1]) {  
+          const priceNode = books[1].getElementsByTagName('price')[0];
+          if (priceNode) {
+            priceNode.textContent = '4000.00'; 
+          }
+        }
+
+       
+        for (let i = 0; i < books.length; i++) {
+          const title = books[i].getElementsByTagName('title')[0]?.textContent.trim() || '';
+          const author = books[i].getElementsByTagName('author')[0]?.textContent.trim() || '';
+          const price = books[i].getElementsByTagName('price')[0]?.textContent.trim() || '';
+
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${title}</td>
+            <td>${author}</td>
+            <td>${price}</td>
+          `;
+          updatelist.appendChild(row);
+        }
+
+      })
+      .catch(err => {
+        console.error('Failed to load or parse library.xml:', err);
+        const li = document.createElement('li');
+        li.textContent = 'Failed to load library data.';
+        oldlist.appendChild(li);
+        updatelist.appendChild(li.cloneNode(true));
+      });
+  </script>
+</body>
+</html>

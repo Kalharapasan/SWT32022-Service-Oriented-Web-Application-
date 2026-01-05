@@ -1,0 +1,12 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<soap:Envelope>
+    <soap:Body>
+        <getBookInfoResponse>
+            <Book>
+                <BookID>B0001</BookID>
+                <Author>P.R.P.S.Kalhara</Author>
+                <ISBN>10</ISBN>
+            </Book>
+        </getBookInfoResponse>
+    </soap:Body>
+</soap:Envelope>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+    <student id="1" regNo="SEU/IS/20/ICT/084">
+        <name>Pasan Kalhara</name>
+        <department>ICT</department>
+        <gpa>3.8</gpa>
+    </student>
+    <student id="2"  regNo="SEU/IS/20/BST/006">
+        <name>Tharushi Randhula</name>
+        <department>BST</department>
+        <gpa>4.0</gpa>
+    </student>
+    <student id="3"  regNo="SEU/IS/20/ICT/026">
+        <name>Ishara Madhushanka</name>
+        <department>ICT</department>
+        <gpa>3.9</gpa>
+    </student>
+    <student id="4"  regNo="SEU/IS/20/ICT/045">
+        <name>Sagara</name>
+        <department>ICT</department>
+        <gpa>2.0</gpa>
+    </student>
+    <student id="5"  regNo="SEU/IS/20/BST/026">
+        <name>Amani</name>
+        <department>BST</department>
+        <gpa>3.0</gpa>
+    </student>
+</students>

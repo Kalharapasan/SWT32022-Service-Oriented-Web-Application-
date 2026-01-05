@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q04</title>
+</head>
+<body>
+    
+    <p>Book Title List</p>
+   <ul id="list"></ul>
+
+    <script>
+        const list = document.getElementById("list");
+        const parser = new DOMParser();
+
+        fetch('library.xml')
+            .then(response => response.text())
+            .then(xmlText => {
+                const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+                const library = xmlDoc.getElementsByTagName('book');
+
+                for (let i = 0; i < library.length; i++) {
+                    const lib = library[i];
+                    const title = lib.getElementsByTagName('title')[0]?.textContent.trim() || '';
+                    
+
+                    const row = document.createElement('li');
+                    row.innerHTML = `
+                        <li>${title}</li>
+                    
+                    `;
+                    list.appendChild(row);
+
+                    console.log(title);
+                }
+            })
+            .catch(err => {
+                console.error('Failed to load or parse library.xml:', err);
+                const row = document.createElement('tr');
+                row.innerHTML = `<li colspan="7">Failed to load library data.</li>`;
+                list.appendChild(row);
+            });
+    </script>
+    
+</body>
+</html>

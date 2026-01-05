@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+    <book id="1" isbn="S001" category="ICT">
+        <title>C++</title>
+        <author>Saman Ekanayaka</author>
+        <price>1000.00</price>
+    </book>
+    <book id="2" isbn="S003" category="Enginering">
+        <title>Moter Macanic</title>
+        <author>Kavidhu Rathnayaka</author>
+        <price>12000.00</price>
+    </book>
+    <book id="3" isbn="S015" category="BST">
+        <title>BST</title>
+        <author>Sagara</author>
+        <price>1000.00</price>
+    </book>
+    <book id="4" isbn="S033" category="English">
+        <title>Romiyo Juliat</title>
+        <author>Rathnayaka</author>
+        <price>3000.00</price>
+    </book>
+    <book id="5" isbn="S063" category="Net Working">
+        <title>Net Working</title>
+        <author>Kavidhu Rathnayaka</author>
+        <price>1000.00</price>
+    </book>
+</library>

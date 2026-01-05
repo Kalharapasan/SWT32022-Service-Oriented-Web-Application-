@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><wsdd:deployment xmlns:wsdd="http://xml.apache.org/axis/wsdd/" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:add.com="http://add.com" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+  <wsdd:service name="Addition" provider="java:RPC" use="literal" style="wrapped">
+    <wsdd:parameter name="wsdlTargetNamespace" value="http://add.com"/>
+    <wsdd:parameter name="wsdlServiceElement" value="AdditionService"/>
+    <wsdd:parameter name="schemaQualified" value="http://add.com"/>
+    <wsdd:parameter name="wsdlServicePort" value="Addition"/>
+    <wsdd:parameter name="className" value="com.add.Addition"/>
+    <wsdd:parameter name="wsdlPortType" value="Addition"/>
+    <wsdd:parameter name="typeMappingVersion" value="1.2"/>
+    <wsdd:parameter name="allowedMethods" value="add"/>
+    <wsdd:operation name="add" qname="add.com:add" returnQName="add.com:addReturn" returnType="XMLSchema:int" soapAction="">
+      <wsdd:parameter qname="add.com:num1" type="XMLSchema:int"/>
+      <wsdd:parameter qname="add.com:num2" type="XMLSchema:int"/>
+    </wsdd:operation>
+  </wsdd:service>
+</wsdd:deployment>

@@ -1,0 +1,17 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<soap:Envelope>
+    <!-- Header -->
+    <soap:Header>
+        <authentication>
+            <username>abc@gmail.com</username>
+            <password>1234</password>
+        </authentication>
+    </soap:Header>
+    <!-- Body -->
+    <soap:Body>
+        <addNumber>
+            <number1>5</number1>
+            <number2>10</number2>
+        </addNumber>
+    </soap:Body>
+</soap:Envelope>

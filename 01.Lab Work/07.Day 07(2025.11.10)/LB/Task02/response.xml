@@ -1,0 +1,13 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<soap:Envelope>
+    <soap:Body>
+        <getStudentDetailsResponse>
+            <Student>
+                <StudentID>ICT/084</StudentID>
+                <Name>KAlhara</Name>
+                <Age>25</Age>
+                <Grade>A</Grade>
+            </Student>
+        </getStudentDetailsResponse>
+    </soap:Body>
+</soap:Envelope>

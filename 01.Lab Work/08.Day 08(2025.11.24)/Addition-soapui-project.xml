@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="7404d4df-3033-4e82-9afc-07f548d08200" activeEnvironment="Default" name="Addition" resourceRoot="" soapui-version="5.9.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="5f87ff4d-1d39-4b05-b7b2-31b9f991d42a" wsaVersion="NONE" name="AdditionSoapBinding" type="wsdl" bindingName="{http://add.com}AdditionSoapBinding" soapVersion="1_1" anonymous="optional" definition="file:/D:/SEU.IS.20.ICT.084/SWT32051-Partical%20for%20Servise%20oriented%20web%20application/08.Day%2008(2025.11.24)/Calculater/src/main/webapp/wsdl/Addition.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\D:\SEU.IS.20.ICT.084\SWT32051-Partical%20for%20Servise%20oriented%20web%20application\08.Day%2008(2025.11.24)\Calculater\src\main\webapp\wsdl\Addition.wsdl"><con:part><con:url>file:\D:\SEU.IS.20.ICT.084\SWT32051-Partical%20for%20Servise%20oriented%20web%20application\08.Day%2008(2025.11.24)\Calculater\src\main\webapp\wsdl\Addition.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://add.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://add.com" xmlns:intf="http://add.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!--WSDL created by Apache Axis version: 1.4.1-SNAPSHOT
+Built on Nov 07, 2023 (07:57:58 UTC)-->
+  <wsdl:types>
+    <schema elementFormDefault="qualified" targetNamespace="http://add.com" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="add">
+        <complexType>
+          <sequence>
+            <element name="num1" type="xsd:int"/>
+            <element name="num2" type="xsd:int"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="addResponse">
+        <complexType>
+          <sequence>
+            <element name="addReturn" type="xsd:int"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="addRequest">
+    <wsdl:part element="impl:add" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addResponse">
+    <wsdl:part element="impl:addResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Addition">
+    <wsdl:operation name="add">
+      <wsdl:input message="impl:addRequest" name="addRequest"></wsdl:input>
+      <wsdl:output message="impl:addResponse" name="addResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AdditionSoapBinding" type="impl:Addition">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="add">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="addRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AdditionService">
+    <wsdl:port binding="impl:AdditionSoapBinding" name="Addition">
+      <wsdlsoap:address location="http://localhost:8080/Calculater/services/Addition"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/Calculater/services/Addition</con:endpoint></con:endpoints><con:operation id="7a4a83af-e30d-4161-ba42-7603505074a2" isOneWay="false" action="" name="add" bindingOperationName="add" type="Request-Response" outputName="addResponse" inputName="addRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7b962898-1422-4faa-b1a0-acd53ef7f081" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/Calculater/services/Addition</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:add="http://add.com">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <add:add>\r
+         <add:num1>10</add:num1>\r
+         <add:num2>20</add:num2>\r
+      </add:add>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://add.com/Addition/addRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
