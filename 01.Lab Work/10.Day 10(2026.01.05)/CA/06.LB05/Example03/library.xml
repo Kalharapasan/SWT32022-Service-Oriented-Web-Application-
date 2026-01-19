@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<library xmlns="http://example.com/library">
+    <libraryName>City Central Library</libraryName>
+
+    <books>
+        <book isbn="978-0134685991">
+            <title>Effective Java</title>
+            <author>Joshua Bloch</author>
+            <price>650</price>
+            <publishedYear>2018</publishedYear>
+        </book>
+
+        <book isbn="978-1491950357">
+            <title>Learning Python</title>
+            <author>Mark Lutz</author>
+            <price>850</price>
+            <publishedYear>2013</publishedYear>
+        </book>
+    </books>
+</library>

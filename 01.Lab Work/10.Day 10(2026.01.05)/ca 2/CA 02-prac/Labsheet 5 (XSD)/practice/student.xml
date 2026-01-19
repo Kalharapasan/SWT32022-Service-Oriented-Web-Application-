@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<bookstore xmlns="http://example.com/bookstore">
+    <book category="fiction" language="English">
+        <title>The Alchemist</title>
+        <author>paulo coelh</author>
+        <price>10.25</price>
+        <discount>10</discount>
+    </book>
+
+    
+    <book category="Programming" language="English">
+        <title>Learning XML</title>
+        <author>Erik T. Ray</author>
+        <price>39.95</price>
+    </book>
+</bookstore>

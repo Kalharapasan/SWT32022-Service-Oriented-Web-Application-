@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<definitions name ='SayHello_Service'
+    targetNamespace="http://example.com/wsdl/SayHello_Service.wsdl"
+    xmlns:soap ="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="http://localhost:8080/SayHello"
+    xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+    <message name="sayHelloRequest">
+        <part name="firstname" type="xsd:string"/>
+    </message>
+    <message name="sayHelloResponse">
+        <part name="result" type="xsd:string"/>
+    </message>
+
+    <portType name="SayHello_portType">
+        <operation name="sayHello">
+            <input message="tns:sayHelloRequest"/>
+            <output message="tns:sayHelloResponse"/> 
+        </operation>
+    </portType>
+
+    <binding name="SayHelloBinding" type="tns:SayHello_portType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/htt"/>
+        <soap:operatio soapaction="sayHello">
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </soap:operatio>
+    </binding>
+
+    <service name="SayHelloService">
+        <port name="SayHelloServicePort" binding="tns:SayHello_biding">
+            <soap:address location="http://localhost:8080/SayHelloService"/>
+        </port>
+    </service>
+</definitions>

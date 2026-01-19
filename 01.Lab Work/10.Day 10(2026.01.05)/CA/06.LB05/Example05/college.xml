@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<college xmlns="http://example.com/college">
+    <collegeName>National Institute of Technology</collegeName>
+    <establishedYear>1995</establishedYear>
+
+    <departments>
+
+        <department deptCode="CSE">
+            <deptName>Computer Science</deptName>
+
+            <facultyList>
+                <faculty>
+                    <facultyId>F101</facultyId>
+                    <name>Dr. Arun Kumar</name>
+                    <designation>Professor</designation>
+                    <experience>15</experience>
+                </faculty>
+                <faculty>
+                    <facultyId>F102</facultyId>
+                    <name>Ms. Priya Sharma</name>
+                    <designation>Assistant Professor</designation>
+                    <experience>6</experience>
+                </faculty>
+            </facultyList>
+
+            <students>
+                <student regNo="CSE001">
+                    <name>Ravi</name>
+                    <year>3</year>
+                    <cgpa>8.4</cgpa>
+                </student>
+                <student regNo="CSE002">
+                    <name>Anita</name>
+                    <year>2</year>
+                    <cgpa>7.9</cgpa>
+                </student>
+            </students>
+
+        </department>
+
+        <department deptCode="ECE">
+            <deptName>Electronics</deptName>
+
+            <facultyList>
+                <faculty>
+                    <facultyId>F201</facultyId>
+                    <name>Dr. Meera Rao</name>
+                    <designation>Professor</designation>
+                    <experience>18</experience>
+                </faculty>
+            </facultyList>
+
+            <students>
+                <student regNo="ECE001">
+                    <name>Suresh</name>
+                    <year>4</year>
+                    <cgpa>8.1</cgpa>
+                </student>
+            </students>
+
+        </department>
+
+    </departments>
+</college>

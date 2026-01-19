@@ -1,0 +1,53 @@
+<definitions name ='Weather_Service'
+    targetNamespace="http://example.com/wsdl/Weather_Service.wsdl"
+    xmlns:soap ="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="http://localhost:8080/Weather"
+    xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+    <message name="TemperatureRequest">
+        <part name="city" type="xsd:string"/>
+    </message>
+    <messae name="TemperatureResponse">
+        <part name="city" type="xsd:string"/>
+        <part name="Temperature" type="xsd:float"/>
+    </messae>
+    <message name="conditionRequest">
+        <part name="city" type="xsd:string"/>
+    </message>
+    <message name="conditionResponse"> 
+        <part name="city" type="xsd:string"/>
+        <part name="condition" type="xsd:string"/>
+    </message>
+    
+    
+    <portType name="weatherPortType">
+        <operation name="GetTemperature">
+            <input message="tns:TemperatureRequest" />
+            <output message="tns:TemperatureResponse"/>
+        </operation>
+        <operation name="GetCondition">
+            <input message="conditionRequest"/>
+            <input message="conditionResponse"/>
+        </operation>
+    </portType>
+
+    <binding name="WeatherBinding" type="tns:weatherPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <soap:operation soapAction="GetWeather">
+            <input>
+                <soap:body use="litaral"/>
+            </input>
+            <output>
+                <soap:body use="litaral"/>
+            </output>
+        </soap:operation>
+    </binding>
+
+    <service name="Weather_Service" >
+        <port name="WeatherPort" binding="tns:WeatherBinding">
+            <soap:address location="https://localhost:8080/weather"/>
+        </port>
+    </service>
+
+</definitions>
+             

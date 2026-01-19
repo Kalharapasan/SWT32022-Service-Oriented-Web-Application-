@@ -1,0 +1,61 @@
+<definitions name ='Bank_Account_Service'
+    targetNamespace="http://example.com/wsdl/Bank_Account.wsdl"
+    xmlns:soap ="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="http://localhost:8080/Bank_Account"
+    xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+    <message name ="getDepositeRequest">
+        <part name="account_No" type ="xsd:int" />
+        <part name="amount" type ="xsd:float" />
+    </message>
+
+    <message name ="getDepositeResponse">
+        <part name="balance" type ="xsd:float" />
+    </message>
+
+    <message name ="getWithdrawedRequest">
+        <part name="account_No" type ="xsd:int" />
+        <part name="amount" type ="xsd:float" />
+    </message>
+
+    <message name ="getWithdrawedResponse">
+        <part name="balance" type ="xsd:float" />
+    </message>
+
+    <message name ="getCheekBalanesRequest">
+        <part name="account_No" type ="xsd:int" />
+    </message>
+
+    <message name ="getCheekBalanesResponse">
+        <part name="balance" type ="xsd:float" />
+    </message>
+
+    <portType name="Bank_Account_portType"> 
+
+        <operation name ="Deposite">
+            <input message="tns:getDepositeRequest" />
+            <output message="tns:getDepositeResponse"/>
+        </operation>
+        
+        <operation name ="Withdrawed">
+            <input message="tns:getWithdrawedRequest" />
+            <output message="tns:getWithdrawedResponse"/>
+        </operation>
+
+        <operation name ="Cheek_Balanes">
+            <input message="tns:getCheekBalanesRequest" />
+            <output message="tns:getCheekBalanesResponse"/>
+        </operation>
+
+    </portType>
+
+    <binding name="Bank_Account_Binding" type="tns:Bank_Account_PortType">
+        <soap:binding style ="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    </binding>
+
+    <service name="Bank_Account_Service">
+        <port name="Bank_Account_port" binding="tns:Bank_Account_Binding">
+            <soap:address location ="http://localhost:8080/Bank_Account_Service" />
+        </port>
+    </service>
+</definitions>

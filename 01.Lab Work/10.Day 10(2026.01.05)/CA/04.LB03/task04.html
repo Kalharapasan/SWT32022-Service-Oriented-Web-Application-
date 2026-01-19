@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>XML DOM Examples</title>
+    </head>
+    <body>
+
+    <h2>XML DOM Examples</h2>
+    <div id="XMLDOM"></div>
+
+    <script>
+        // Sample XML
+        var parser = new DOMParser();
+        var xmlString = `<?xml version="1.0" encoding="UTF-8" ?>
+        <bookstore>
+            <book category="Entertainment">
+                <title lang="En">Harry Potter</title>
+                <Author>JK. Rowling</Author>
+                <Year>2009</Year>
+                <Price>$45.99</Price>
+            </book>
+            <book category="Fiction">
+                <title lang="En">Avengers</title>
+                <Author>Warner Bros</Author>
+                <Year>2010</Year>
+                <Price>$32.89</Price>
+            </book>
+            <book category="Mysery">
+                <title lang="Sp">The Great Gatsby</title>
+                <Author>F Scott Fitzgerald</Author>
+                <Year>1920</Year>
+                <Price>$1.99</Price>
+            </book>
+            <book category="Historical">
+                <title lang="Fr">Things Fall Apart</title>
+                <Author>Chinua Achebe</Author>
+                <Year>1958</Year>
+                <Price>$12.99</Price>
+            </book>
+            <book category="Tragedy">
+                <title lang="Es">Hamlet</title>
+                <Author>William Shakespeare</Author>
+                <Year>1601</Year>
+                <Price>$24.99</Price>
+            </book>
+        </bookstore>`;
+
+        var xmlDoc = parser.parseFromString(xmlString, "text/xml");
+        var txt = "";
+
+        // 1. Getting Attribute value
+        var books = xmlDoc.getElementsByTagName("book");
+        for (var i=0; i<books.length; i++){
+            txt += "Book category: " + books[i].getAttribute("category") + "<br>";
+        }
+        var firstTitle = xmlDoc.getElementsByTagName("title")[0];
+        txt += "Title lang attribute: " + firstTitle.getAttributeNode("lang").nodeValue + "<br><br>";
+
+        // 2. Changing an attribute value
+        books[0].setAttribute("category", "Magical");
+        txt += "Updated category of first book: " + books[0].getAttribute("category") + "<br>";
+
+        // 3. Changing attribute value using setAttribute (same as above)
+        books[0].setAttribute("category", "Fantasy");
+        txt += "Updated category using setAttribute again: " + books[0].getAttribute("category") + "<br>";
+
+        // 4. Remove an element node
+        var root = xmlDoc.documentElement;
+        var removedNode = root.removeChild(root.childNodes[1]); // removes 2nd child <book> (first book is #0)
+        txt += "Removed Node: " + removedNode.nodeName + "<br>";
+
+        // 5. Remove a text node
+        var xTitle = xmlDoc.getElementsByTagName("title")[0];
+        var removedText = xTitle.removeChild(xTitle.childNodes[0]);
+        txt += "Removed text node, remaining child nodes: " + xTitle.childNodes.length + "<br>";
+
+        // 6. Remove an attribute node
+        txt += "Category before removing attribute: " + books[1].getAttribute("category") + "<br>";
+        books[1].removeAttribute("category");
+        txt += "Category after removing attribute: " + books[1].getAttribute("category") + "<br>";
+
+        // 7. Replace an element
+        var newNode = xmlDoc.createElement("book");
+        var newTitle = xmlDoc.createElement("title");
+        var newText = xmlDoc.createTextNode("A notebook");
+        newTitle.appendChild(newText);
+        newNode.appendChild(newTitle);
+        var oldBook = xmlDoc.getElementsByTagName("book")[0];
+        root.replaceChild(newNode, oldBook);
+        var titles = xmlDoc.getElementsByTagName("title");
+        for (var i=0; i<titles.length; i++){
+            txt += "Title: " + titles[i].childNodes[0].nodeValue + "<br>";
+        }
+
+        // 8. Replace data in a text node
+        var firstTitleNode = xmlDoc.getElementsByTagName("title")[0].childNodes[0];
+        firstTitleNode.replaceData(0, firstTitleNode.nodeValue.length, "Fantastic Beasts");
+        txt += "Replaced text: " + firstTitleNode.nodeValue + "<br>";
+
+        // 9. Create a new attribute node
+        var newAtt = xmlDoc.createAttribute("Edition");
+        newAtt.nodeValue = "First";
+        xmlDoc.getElementsByTagName("title")[0].setAttributeNode(newAtt);
+        txt += "New attribute Edition: " + xmlDoc.getElementsByTagName("title")[0].getAttribute("Edition") + "<br>";
+
+        // 10. Create a text node
+        var newEl = xmlDoc.createElement("Edition");
+        var newTextNode = xmlDoc.createTextNode("First");
+        newEl.appendChild(newTextNode);
+        var firstBook = xmlDoc.getElementsByTagName("book")[0];
+        firstBook.appendChild(newEl);
+        var y = firstBook.firstChild;
+        for (var i = 0; i < firstBook.childNodes.length; i++){
+            if (y.nodeType == 1){
+                txt += "Child Element: " + y.nodeName + "<br>";
+            }
+            y = y.nextSibling;
+        }
+
+        // 11. Adding a node
+        var newElement = xmlDoc.createElement("edition");
+        firstBook.appendChild(newElement);
+        y = firstBook.firstChild;
+        txt += "After appending a new node:<br>";
+        for (var i=0; i<firstBook.childNodes.length; i++){
+            if (y.nodeType == 1){
+                txt += y.nodeName + "<br>";
+            }
+            y = y.nextSibling;
+        }
+
+        // 12. Insert a node – insertBefore()
+        var newBookNode = xmlDoc.createElement("book");
+        var booksList = xmlDoc.getElementsByTagName("book");
+        txt += "Book elements before insert: " + booksList.length + "<br>";
+        root.insertBefore(newBookNode, booksList[2]);
+        booksList = xmlDoc.getElementsByTagName("book");
+        txt += "Book elements after insert: " + booksList.length + "<br>";
+
+        // 13. Add text to a text node – insertData()
+        var firstTitleNode2 = xmlDoc.getElementsByTagName("title")[0].childNodes[0];
+        firstTitleNode2.insertData(0, "Easy ");
+        txt += "Inserted data: " + firstTitleNode2.nodeValue + "<br>";
+
+        // 14. Clone Nodes
+        var clonedBook = booksList[0].cloneNode(true);
+        root.appendChild(clonedBook);
+        var clonedTitles = xmlDoc.getElementsByTagName("title");
+        txt += "Titles after cloning:<br>";
+        for (var i=0; i<clonedTitles.length; i++){
+            txt += clonedTitles[i].childNodes[0].nodeValue + "<br>";
+        }
+
+        // Show final result
+        document.getElementById("XMLDOM").innerHTML = txt;
+
+    </script>
+
+</body>
+</html>

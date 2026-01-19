@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var car = {
+            name:"vitz",
+            color:"red",
+            year:2020
+        }
+        var jsoncar = JSON.stringify(car);
+        console.log(jsoncar);
+
+        var details = `{"name":"ishara","age":24,"city":"hikkaduwa"}`
+        var jsformat = JSON.parse(details);
+        console.log(jsformat);
+
+        var arry = Object.values(jsformat);
+        arry.forEach((values,index)=>{
+            console.log(values);
+        })
+
+        localStorage.setItem("details",details);
+
+    </script>
+</body>
+</html>

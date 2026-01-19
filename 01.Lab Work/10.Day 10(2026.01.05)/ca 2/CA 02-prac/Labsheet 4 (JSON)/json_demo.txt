@@ -1,0 +1,10 @@
+{
+    "name":"ishara",
+    "age":25,
+    "city":"Hikkaduea",
+    "familyM":{
+        "mother":"Ramya",
+        "father":"Dammika",
+        "brother":"shehan"
+    }
+}

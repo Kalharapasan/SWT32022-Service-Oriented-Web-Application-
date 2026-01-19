@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<soap:Envelop xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+              xmlns:cal="http://example.com/calculator">
+            
+    <soap:Header>
+        <cal:authentication>
+            <cal:username>abc@gmail.com</cal:username>
+            <cal:password>1234</cal:password>
+        </cal:authentication>
+    </soap:Header>
+
+    <soap:Body>
+        <cal:addnumber>
+            <cal:number1>10</cal:number1>
+            <cal:number2>20</cal:number2>
+        </cal:addnumber>
+    </soap:Body>
+
+</soap:Envelop>

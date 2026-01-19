@@ -1,0 +1,75 @@
+<html>
+    <body>
+
+        <table border="1" id="carTable">
+            <tr>
+                <th>CarName</th>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Type</th>
+            </tr>
+        </table>
+
+    </body>
+    <script>
+        var text,parser,xmlDoc;
+        text ="<carParking>"+
+                    "<car>"+
+                        "<CarName>Corolla</CarName>"+
+                        "<Make>Toyota</Make>"+
+                        "<Model>2015</Model>"+
+                        "<Price>20000</Price>"+
+                        "<Type>Petrol</Type>"+
+                    "</car>"+
+                    "<car>"+
+                        "<CarName>Civic</CarName>"+
+                        "<Make>Honda</Make>"+
+                        "<Model>2018</Model>"+
+                        "<Price>25000</Price>"+
+                        "<Type>Diesel</Type>"+
+                    "</car>"+
+                    "<car>"+
+                        "<CarName>Passo</CarName>"+
+                        "<Make>Toyota</Make>"+
+                        "<Model>2012</Model>"+
+                        "<Price>18000</Price>"+
+                        "<Type>Hybrid</Type>"+
+                    "</car>"+
+                    "<car>"+
+                        "<CarName>Land Cruiser</CarName>"+
+                        "<Make>Toyota</Make>"+
+                        "<Model>2017</Model>"+
+                        "<Price>40000</Price>"+
+                        "<Type>Petrol</Type>"+
+                    "</car>"+
+                    "<car>"+
+                        "<CarName>Vitz</CarName>"+
+                        "<Make>Toyota</Make>"+
+                        "<Model>2018</Model>"+
+                        "<Price>35000</Price>"+
+                        "<Type>Petrol</Type>"+
+                    "</car>"+
+            "</carParking>";
+
+            parser = new DOMParser();
+            xmlDoc =parser.parseFromString(text,"text/xml");
+
+            var cars = xmlDoc.getElementsByTagName("car");
+            var table = document.getElementById("carTable");
+
+            for (var i = 0; i < cars.length; i++) {
+                var row = table.insertRow();
+
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                var cell4 = row.insertCell(3);
+
+                cell1.innerHTML = cars[i].getElementsByTagName("CarName")[0].childNodes[0].nodeValue;
+                cell2.innerHTML = cars[i].getElementsByTagName("Make")[0].childNodes[0].nodeValue;
+                cell3.innerHTML = cars[i].getElementsByTagName("Model")[0].childNodes[0].nodeValue;
+                cell4.innerHTML = cars[i].getElementsByTagName("Type")[0].childNodes[0].nodeValue;
+            }
+
+    </script>
+</html>

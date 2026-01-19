@@ -1,0 +1,51 @@
+<definitions name ='Bank_Account_Service'
+    targetNamespace="http://example.com/wsdl/Bank_Account.wsdl"
+    xmlns:soap ="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="http://localhost:8080/Bank_Account"
+    xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+    <message name="DepositRequest">
+        <part name="accountnumber" type="xsd:integer"/>
+        <part name="amount" type="xsd:float"/>
+    </message>
+    <message name="DepositResponse">
+        <part name="accountnumber" type="xsd:interger"/>
+        <part name="balance" type="xsd:float"/>
+    </message>
+
+    <message name="WithdroeRequest">
+        <part name="accountnumber" type="xsd:integer"/>
+        <part namr="amount" type="xsd:float"/>
+    </message>
+    <messagre name="withdrowResponse">
+        <part name="accountnumber" type="xsd:interger"/>
+        <part name="balance" type="xsd:floart"/>
+    </messagre>
+
+    <message name="checkbalanceRequest">
+        <part name="accountnumber" type="xsd:interger"/>
+    </message>
+    <message name="checkbalanceResponse">
+        <part name="balance" type="xsd:float"/>
+    </message>
+
+    <portType name="BankAccountPortType" >
+        <opearation name="deposit">
+            <input message="DepositRequest"/>
+            <output message="DepositResponse"/>
+        </opearation>
+        <opearation name="withdrow">
+            <input message="WithdroeRequest"/>
+            <output message="withdrowResponse"/>
+        </opearation>
+        <opearation name="checkbalance">
+            <input message="checkbalanceRequest"/>
+            <output message="checkbalanceResponse"/>
+        </opearation>
+    </portType>
+
+    <binding name="BnakAccountBinding" type="tns:BankAccountPortType">
+        
+    </binding>
+    
+</definitions>

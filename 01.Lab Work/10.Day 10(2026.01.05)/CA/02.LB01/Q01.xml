@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<University>
+    <Lecturers id="001">
+        <Name>Samarathunga</Name>
+        <Age>34</Age>
+        <Email>123@mail.com</Email>
+    </Lecturers>
+    <Lecturers id="002">
+        <Name>Samaravira</Name>
+        <Age>35</Age>
+        <Email>342@mail.com</Email>
+    </Lecturers>
+</University>

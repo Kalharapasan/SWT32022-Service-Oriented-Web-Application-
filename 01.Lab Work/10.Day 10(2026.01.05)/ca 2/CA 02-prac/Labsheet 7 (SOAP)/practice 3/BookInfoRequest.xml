@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<soap:Envelope xmlns:soap="https//envelop"
+               xmlns:det="https//books/">
+            <soap:Header>
+                <det:authentication>
+                    <det:username>abc@gamil.com</det:username>
+                    <det:password>1234</det:password>
+                </det:authentication>
+            </soap:Header>
+
+            <soap:body>
+                <det:getBookDetails>
+                    <det:bookId>book01</det:bookId>
+                </det:getBookDetails>
+            </soap:body>
+</soap:Envelope>

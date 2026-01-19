@@ -1,0 +1,21 @@
+<!-- JSON.stringify() (Object → JSON) -->
+ <!DOCTYPE html>
+<html>
+<body>
+
+<h3>JSON.stringify Test</h3>
+<p id="demo"></p>
+
+<script>
+var student = {
+  name: "John",
+  age: 21,
+  city: "Colombo"
+};
+
+var jsonText = JSON.stringify(student);
+document.getElementById("demo").innerHTML = jsonText;
+</script>
+
+</body>
+</html>

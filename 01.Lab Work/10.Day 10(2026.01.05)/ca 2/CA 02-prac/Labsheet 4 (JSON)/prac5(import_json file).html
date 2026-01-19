@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="h1"></h1>
+    
+    <script>
+        var xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.onreadystatechange = function(){
+            if(this.readyState===4 && this.status===200){
+                var data = JSON.parse(this.responseText);
+                document.getElementById("h1").innerHTML = data.name;
+
+            }
+        }
+        xmlhttp.open("GET","json_demo.txt",true);
+        xmlhttp.send();
+    </script>
+</body>
+</html>

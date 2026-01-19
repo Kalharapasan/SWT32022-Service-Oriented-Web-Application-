@@ -1,0 +1,20 @@
+<!-- Example 1: JavaScript Object → JSON (JSON.stringify) -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var car = {
+  type: "Vitz",
+  color: "White",
+  model: "2018"
+};
+
+var carJSON = JSON.stringify(car);
+document.getElementById("demo").innerHTML = carJSON;
+</script>
+
+</body>
+</html>

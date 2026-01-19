@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XML DOM - Complete Examples</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    button { margin: 4px; padding: 6px 12px; border-radius: 6px; cursor: pointer; }
+    #demo { margin-top: 20px; border: 1px solid #ccc; padding: 15px; background: #f9f9f9; }
+  </style>
+</head>
+<body>
+  <h2>XML DOM - All Operations</h2>
+
+  <h3>Basic Access</h3>
+  <button onclick="resetXML()">Reset XML</button>
+  <button onclick="listTitles()">List All Titles</button>
+  <button onclick="getAttributes()">Get Attributes</button>
+
+  <h3>Modify Attributes & Elements</h3>
+  <button onclick="changeAttributes()">Change Attributes</button>
+  <button onclick="removeAttribute()">Remove Attribute</button>
+  <button onclick="removeElement()">Remove Element</button>
+  <button onclick="replaceElement()">Replace Element</button>
+
+  <h3>Modify Text</h3>
+  <button onclick="removeText()">Remove Text</button>
+  <button onclick="replaceText()">Replace Text</button>
+  <button onclick="insertText()">Insert Text</button>
+
+  <h3>Create & Insert</h3>
+  <button onclick="createAttribute()">Create Attribute</button>
+  <button onclick="createText()">Create Text Node</button>
+  <button onclick="appendNode()">Append Node</button>
+  <button onclick="insertNode()">Insert Node</button>
+  <button onclick="cloneNodeFunc()">Clone Node</button>
+
+  <h3>Other DOM Features</h3>
+  <button onclick="checkHasChild()">hasChildNodes()</button>
+  <button onclick="navigateTree()">Tree Navigation</button>
+  <button onclick="nodeInfo()">Node Info</button>
+  <button onclick="normalizeXML()">Normalize</button>
+  <button onclick="addCDATA()">Add CDATA Section</button>
+  <button onclick="addComment()">Add Comment</button>
+  <button onclick="showRoot()">documentElement (root)</button>
+
+  <h3>Run Everything</h3>
+  <button onclick="runAll()">Run All</button>
+
+  <div id="demo"></div>
+
+  <script>
+    var parser = new DOMParser();
+    var xmlString = `<?xml version="1.0" encoding="UTF-8"?>
+      <bookstore>
+        <book category="Entertainment">
+          <title lang="En">Harry Potter</title>
+          <Author>JK. Rowling</Author>
+          <Year>2009</Year>
+          <Price>$45.99</Price>
+        </book>
+        <book category="Fiction">
+          <title lang="En">Avengers</title>
+          <Author>Warner Bros</Author>
+          <Year>2010</Year>
+          <Price>$32.89</Price>
+        </book>
+      </bookstore>`;
+    var xmlDoc;
+
+    function resetXML() {
+      xmlDoc = parser.parseFromString(xmlString, "text/xml");
+      document.getElementById("demo").innerHTML = "<b>XML has been reset.</b><br>";
+    }
+    function show(msg) { document.getElementById("demo").innerHTML += msg + "<br>"; }
+
+    // -------- Basic --------
+    function listTitles() {
+      var titles = xmlDoc.getElementsByTagName("title");
+      for (let i=0;i<titles.length;i++) show("Title: " + titles[i].textContent);
+      show("<hr>");
+    }
+    function getAttributes() {
+      var books = xmlDoc.getElementsByTagName("book");
+      for (let b of books) show("Category: " + b.getAttribute("category"));
+      show("<hr>");
+    }
+
+    // -------- Modify Attributes & Elements --------
+    function changeAttributes() {
+      var b = xmlDoc.getElementsByTagName("book")[0];
+      b.setAttribute("category","Fantasy");
+      show("Changed category → " + b.getAttribute("category"));
+    }
+    function removeAttribute() {
+      var b = xmlDoc.getElementsByTagName("book")[1];
+      b.removeAttribute("category");
+      show("Removed attribute from 2nd book.");
+    }
+    function removeElement() {
+      var root = xmlDoc.documentElement;
+      root.removeChild(root.getElementsByTagName("book")[1]);
+      show("Removed 2nd book.");
+    }
+    function replaceElement() {
+      var root = xmlDoc.documentElement;
+      var newB = xmlDoc.createElement("book");
+      var t = xmlDoc.createElement("title");
+      t.textContent = "Replaced Book";
+      newB.appendChild(t);
+      root.replaceChild(newB, root.getElementsByTagName("book")[0]);
+      show("Replaced 1st book.");
+    }
+
+    // -------- Modify Text --------
+    function removeText() {
+      var t = xmlDoc.getElementsByTagName("title")[0];
+      if (t.firstChild) t.removeChild(t.firstChild);
+      show("Removed text of first title.");
+    }
+    function replaceText() {
+      var t = xmlDoc.getElementsByTagName("title")[0];
+      if (t.firstChild) t.firstChild.nodeValue = "Fantastic Beasts";
+      show("Replaced title text.");
+    }
+    function insertText() {
+      var t = xmlDoc.getElementsByTagName("title")[0].firstChild;
+      t.insertData(0,"Easy ");
+      show("Inserted text → " + t.nodeValue);
+    }
+
+    // -------- Create & Insert --------
+    function createAttribute() {
+      var t = xmlDoc.getElementsByTagName("title")[0];
+      var att = xmlDoc.createAttribute("Edition");
+      att.value = "First";
+      t.setAttributeNode(att);
+      show("Added Edition attribute.");
+    }
+    function createText() {
+      var b = xmlDoc.getElementsByTagName("book")[0];
+      var el = xmlDoc.createElement("Edition");
+      el.textContent = "1st Edition";
+      b.appendChild(el);
+      show("Created Edition element.");
+    }
+    function appendNode() {
+      var b = xmlDoc.getElementsByTagName("book")[0];
+      var el = xmlDoc.createElement("Extra");
+      el.textContent = "Append Example";
+      b.appendChild(el);
+      show("Appended Extra node.");
+    }
+    function insertNode() {
+      var root = xmlDoc.documentElement;
+      var nb = xmlDoc.createElement("book");
+      root.insertBefore(nb, root.firstChild);
+      show("Inserted new empty book at start.");
+    }
+    function cloneNodeFunc() {
+      var b = xmlDoc.getElementsByTagName("book")[0];
+      var c = b.cloneNode(true);
+      xmlDoc.documentElement.appendChild(c);
+      show("Cloned first book.");
+    }
+
+    // -------- Other DOM Features --------
+    function checkHasChild() {
+      var b = xmlDoc.getElementsByTagName("book")[0];
+      show("First book has children? " + b.hasChildNodes());
+    }
+    function navigateTree() {
+      var b = xmlDoc.getElementsByTagName("book")[0];
+      show("parentNode: " + b.parentNode.nodeName);
+      show("firstChild: " + b.firstChild.nodeName);
+      show("lastChild: " + b.lastChild.nodeName);
+    }
+    function nodeInfo() {
+      var t = xmlDoc.getElementsByTagName("title")[0];
+      show("NodeName: " + t.nodeName + " | NodeType: " + t.nodeType);
+    }
+    function normalizeXML() {
+      var b = xmlDoc.getElementsByTagName("book")[0];
+      b.appendChild(xmlDoc.createTextNode(" "));
+      b.normalize();
+      show("Normalized XML (merged text nodes).");
+    }
+    function addCDATA() {
+      var b = xmlDoc.getElementsByTagName("book")[0];
+      var cdata = xmlDoc.createCDATASection("CDATA Example <tags>");
+      b.appendChild(cdata);
+      show("Added CDATA section.");
+    }
+    function addComment() {
+      var b = xmlDoc.getElementsByTagName("book")[0];
+      var com = xmlDoc.createComment("This is a comment");
+      b.appendChild(com);
+      show("Added comment node.");
+    }
+    function showRoot() {
+      show("Root element: " + xmlDoc.documentElement.nodeName);
+    }
+
+    // -------- Run All --------
+    function runAll() {
+      resetXML();
+      listTitles();
+      getAttributes();
+      changeAttributes();
+      removeAttribute();
+      removeElement();
+      replaceElement();
+      removeText();
+      replaceText();
+      insertText();
+      createAttribute();
+      createText();
+      appendNode();
+      insertNode();
+      cloneNodeFunc();
+      checkHasChild();
+      navigateTree();
+      nodeInfo();
+      normalizeXML();
+      addCDATA();
+      addComment();
+      showRoot();
+    }
+
+    // initialize
+    resetXML();
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<definitions name="LibraryService"
+    targetNamespace="http://example.com/wsdl/LibraryService"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="http://example.com/wsdl/LibraryService"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <message name="GetBookTitleRequest">
+        <part name="bookId" type="xsd:int"/>
+    </message>
+
+    <message name="GetBookTitleResponse">
+        <part name="bookTitle" type="xsd:string"/>
+    </message>
+
+    <message name="GetBookAuthorRequest">
+        <part name="bookId" type="xsd:int"/>
+    </message>
+
+    <message name="GetBookAuthorResponse">
+        <part name="authorName" type="xsd:string"/>
+    </message>
+
+    <portType name="LibraryPortType">
+        <operation name="getBookTitle">
+            <input message="tns:GetBookTitleRequest"/>
+            <output message="tns:GetBookTitleResponse"/>
+        </operation>
+
+        <operation name="getBookAuthor">
+            <input message="tns:GetBookAuthorRequest"/>
+            <output message="tns:GetBookAuthorResponse"/>
+        </operation>
+    </portType>
+
+    <binding name="LibraryBinding" type="tns:LibraryPortType">
+        <soap:binding style="rpc"
+            transport="http://schemas.xmlsoap.org/soap/http"/>
+    </binding>
+
+    <service name="LibraryService">
+        <port name="LibraryPort" binding="tns:LibraryBinding">
+            <soap:address location="http://localhost:8080/LibraryService"/>
+        </port>
+    </service>
+
+</definitions>

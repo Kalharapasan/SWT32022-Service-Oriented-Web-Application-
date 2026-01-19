@@ -1,0 +1,29 @@
+<!-- Example 5: JSON Object with Nested Array -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var myObj = {
+  name: "John",
+  age: 30,
+  cars: [
+    {name:"Ford", models:["Fiesta","Focus"]},
+    {name:"BMW", models:["320","X5"]}
+  ]
+};
+
+var text = "";
+for (var i in myObj.cars) {
+  text += "<b>" + myObj.cars[i].name + "</b><br>";
+  for (var j in myObj.cars[i].models) {
+    text += myObj.cars[i].models[j] + "<br>";
+  }
+}
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>

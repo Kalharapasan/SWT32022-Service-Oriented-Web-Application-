@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Table from JSON</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 60%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Student Details</h2>
+
+<table id="dataTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Course</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Data will be inserted here -->
+    </tbody>
+</table>
+
+<script>
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "data.json", true);
+
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            var data = JSON.parse(xhr.responseText);
+            var tableBody = document.querySelector("#dataTable tbody");
+
+            data.forEach(function (item) {
+                var row = document.createElement("tr");
+
+                row.innerHTML =
+                    "<td>" + item.id + "</td>" +
+                    "<td>" + item.name + "</td>" +
+                    "<td>" + item.age + "</td>" +
+                    "<td>" + item.course + "</td>";
+
+                tableBody.appendChild(row);
+            });
+        }
+    };
+
+    xhr.send();
+</script>
+
+</body>
+</html>

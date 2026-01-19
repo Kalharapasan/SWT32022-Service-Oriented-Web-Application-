@@ -1,0 +1,19 @@
+<!-- Example 2: JSON → JavaScript Object (JSON.parse) -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+
+<script>
+var studentJSON = '{"name":"John","age":21,"city":"Colombo"}';
+var student = JSON.parse(studentJSON);
+
+document.getElementById("demo").innerHTML =
+"Name: " + student.name + "<br>" +
+"Age: " + student.age + "<br>" +
+"City: " + student.city;
+</script>
+
+</body>
+</html>

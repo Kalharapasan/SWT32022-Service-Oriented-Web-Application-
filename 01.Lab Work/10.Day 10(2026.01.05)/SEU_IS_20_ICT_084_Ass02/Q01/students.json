@@ -1,0 +1,127 @@
+[
+    {
+        "studentId":"S001",
+        "name":"Kalhara",
+        "email":"mail1@mail.com",
+        "registered":true,
+        "courses":[
+            {
+                "courseCode":"C001",
+                "courseName":"C++",
+                "credits":2
+                
+            },
+            {
+                "courseCode":"C03",
+                "courseName":"C#",
+                "credits":3
+                
+            },
+            {
+                "courseCode":"C025",
+                "courseName":"OOP",
+                "credits":5
+                
+            },
+            {
+                "courseCode":"C015",
+                "courseName":"React",
+                "credits":5
+                
+            }
+        ]
+    },
+    {
+        "studentId":"S002",
+        "name":"Saman",
+        "email":"mail2@mail.com",
+        "registered":true,
+        "courses":[
+            {
+                "courseCode":"C001",
+                "courseName":"C++",
+                "credits":2
+                
+            },
+            {
+                "courseCode":"C025",
+                "courseName":"OOP",
+                "credits":5
+                
+            },
+            {
+                "courseCode":"C015",
+                "courseName":"React",
+                "credits":5
+                
+            },
+            {
+                "courseCode":"C015",
+                "courseName":"React",
+                "credits":5
+                
+            }
+        ]
+    },
+    {
+        "studentId":"S003",
+        "name":"Ishara",
+        "email":"mail3@mail.com",
+        "registered":false,
+        "courses":[
+            {
+                "courseCode":"C025",
+                "courseName":"OOP",
+                "credits":5
+                
+            },
+            {
+                "courseCode":"C025",
+                "courseName":"OOP",
+                "credits":5
+                
+            }
+        ]
+       
+    },
+    {
+        "studentId":"S004",
+        "name":"Saranga",
+        "email":"mail4@mail.com",
+        "registered":true,
+        "courses":{
+            "courseCode":"C023",
+            "courseName":"SOWA",
+            "credits":3
+            
+        }
+    },
+    {
+        "studentId":"S005",
+        "name":"Dulara",
+        "email":"mail5@mail.com",
+        "registered":true,
+        "courses":[
+            {
+                "courseCode":"C022",
+                "courseName":"Java",
+                "credits":4
+                
+            },
+            {
+                "courseCode":"C023",
+                "courseName":"SOWA",
+                "credits":3
+                
+            },
+            {
+                "courseCode":"C015",
+                "courseName":"React",
+                "credits":5
+                
+            }
+            
+        ]
+    }
+
+]

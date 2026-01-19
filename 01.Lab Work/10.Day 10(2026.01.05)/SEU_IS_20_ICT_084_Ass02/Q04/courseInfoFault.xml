@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<soap:Envelope xmlns:soap="https://soap"
+xmlns:det="https://coures/fault">
+
+<soap:Header>
+</soap:Header>
+
+<soap:Body>
+
+<det:courseInfoFault>
+    <fault>Fault</fault>
+</det:courseInfoFault>
+ 
+</soap:Body>
+</soap:Envelope>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<order xmlns="http://example.com/order">
+    <orderId>001</orderId>
+    <orderDate>2026-01-06</orderDate>
+    <customer>
+        <name>Pasan Kalhara</name>
+        <email>mail@gmail.com</email>
+    </customer>
+    <items>
+        <item>
+            <itemName>Laptop</itemName>
+            <quantity>1</quantity>
+            <unitPrice>75000</unitPrice>
+        </item>
+        <item>
+            <itemName>Mouse</itemName>
+            <quantity>2</quantity>
+            <unitPrice>500</unitPrice>
+        </item>
+    </items>
+    
+</order>

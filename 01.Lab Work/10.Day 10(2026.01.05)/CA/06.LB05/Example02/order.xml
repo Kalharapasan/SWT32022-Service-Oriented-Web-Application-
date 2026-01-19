@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<order xmlns="http://example.com/order">
+    <orderId>ORD101</orderId>
+    <customer>
+        <name>Ravi Kumar</name>
+        <email>ravi@gmail.com</email>
+    </customer>
+    <items>
+        <item>
+            <productName>Laptop</productName>
+            <quantity>1</quantity>
+            <price>75000</price>
+        </item>
+        <item>
+            <productName>Mouse</productName>
+            <quantity>2</quantity>
+            <price>500</price>
+        </item>
+    </items>
+    <payment method="CreditCard">
+        <amount>76000</amount>
+    </payment>
+</order>

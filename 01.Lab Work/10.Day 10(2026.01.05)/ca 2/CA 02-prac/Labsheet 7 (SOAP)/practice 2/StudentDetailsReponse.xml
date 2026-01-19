@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+              xmlns:det="http://example.com/details">
+              <soap:Header>
+              </soap:Header>
+
+              <soap:Body>
+                <det:StudentDetailsResponse>
+                    <det:name>ishara</det:name>
+                </det:StudentDetailsResponse>
+              </soap:Body>
+</soap:Envelope>

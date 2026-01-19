@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<carParking>
+    <car>
+        <CarName>Corolla</CarName>
+        <Make>Toyota</Make>
+        <Model>2019</Model>
+        <Type>Sedan</Type>
+    </car>
+    <car>
+        <CarName>Civic</CarName>
+        <Make>Honda</Make>
+        <Model>2020</Model>
+        <Type>Sedan</Type>
+    </car>
+    <car>
+        <CarName>Rav4</CarName>
+        <Make>Toyota</Make>
+        <Model>2021</Model>
+        <Type>SUV</Type>
+    </car>
+    <car>
+        <CarName>Mustang</CarName>
+        <Make>Ford</Make>
+        <Model>2022</Model>
+        <Type>Coupe</Type>
+    </car>
+</carParking>

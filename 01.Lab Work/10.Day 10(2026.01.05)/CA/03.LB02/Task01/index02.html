@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Read XML in HTML using JavaScript</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    table { border-collapse: collapse; width: 80%; margin-top: 20px; }
+    th, td { border: 1px solid #555; padding: 10px; text-align: center; }
+    th { background-color: #f2f2f2; }
+  </style>
+</head>
+<body>
+
+  <h2>Car Parking Data</h2>
+
+  <!-- Table -->
+  <table id="carTable">
+    <tr>
+      <th>Car Name</th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Type</th>
+    </tr>
+  </table>
+
+  <!-- Embed XML directly inside HTML -->
+  <script type="text/xml" id="carData">
+    <carParking>
+        <car>
+            <CarName>Corolla</CarName>
+            <Make>Toyota</Make>
+            <Model>2019</Model>
+            <Type>Sedan</Type>
+        </car>
+        <car>
+            <CarName>Civic</CarName>
+            <Make>Honda</Make>
+            <Model>2020</Model>
+            <Type>Sedan</Type>
+        </car>
+        <car>
+            <CarName>Rav4</CarName>
+            <Make>Toyota</Make>
+            <Model>2021</Model>
+            <Type>SUV</Type>
+        </car>
+        <car>
+            <CarName>Mustang</CarName>
+            <Make>Ford</Make>
+            <Model>2022</Model>
+            <Type>Coupe</Type>
+        </car>
+    </carParking>
+  </script>
+
+  <script>
+    function displayCars() {
+      // Get XML string from <script> tag
+      let xmlText = document.getElementById("carData").innerHTML.trim();
+
+      // Parse XML string into XML DOM
+      let parser = new DOMParser();
+      let xmlDoc = parser.parseFromString(xmlText, "text/xml");
+
+      let cars = xmlDoc.getElementsByTagName("car");
+      let table = document.getElementById("carTable");
+
+      for (let i = 0; i < cars.length; i++) {
+        let row = table.insertRow();
+        row.insertCell(0).innerHTML = cars[i].getElementsByTagName("CarName")[0].textContent;
+        row.insertCell(1).innerHTML = cars[i].getElementsByTagName("Make")[0].textContent;
+        row.insertCell(2).innerHTML = cars[i].getElementsByTagName("Model")[0].textContent;
+        row.insertCell(3).innerHTML = cars[i].getElementsByTagName("Type")[0].textContent;
+      }
+    }
+
+    // Run on page load
+    window.onload = displayCars;
+  </script>
+
+</body>
+</html>

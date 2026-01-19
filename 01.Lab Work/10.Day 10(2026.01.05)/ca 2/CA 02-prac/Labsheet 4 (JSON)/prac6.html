@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="2px solid-red">
+        <tr>
+            <th>mother</th>
+            <th>father</th>
+            <th>brother</th>
+        </tr>
+        <tr>
+            <td id="h1"></td>
+            <td id="h2"></td>
+            <th id="h3"></th>
+        </tr>
+    </table>
+    <script>
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange= function(){
+            if(this.readyState===4 && this.status){
+                var data = JSON.parse(this.responseText);
+
+                var arry = Object.values(data.familyM);
+                console.log(arry);
+
+                arry.forEach((values,index)=>{
+                    document.getElementById("h"+(index+1)).innerHTML= values;
+                })
+                
+            }
+        }
+    xmlhttp.open("GET","json_demo.txt",true);
+    xmlhttp.send();
+    </script>
+</body>
+</html>

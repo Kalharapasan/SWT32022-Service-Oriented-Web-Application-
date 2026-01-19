@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<soap:Envelop xmlns:soap="https://saop"
+              xmlns:det="https://det">
+
+        <soap:Header>
+            <det:authentiction>
+                <det:username>abc@gmail.com</det:username>
+                <det:password>1234</det:password>
+            </det:authentiction>
+        </soap:Header>
+
+        <soap:Body>
+            <det:StudentDetailsRequest>
+                <det:Regno>seu/26</det:Regno>
+            </det:StudentDetailsRequest>
+        </soap:Body>
+</soap:Envelop>

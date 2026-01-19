@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>category</th>
+            <th>language</th>
+            <th>tittle</th>
+            <th>author</th>
+            <th>price</th>
+            <th>discount</th>
+        </tr>
+        <tr>
+            <td id="h0"></td>
+            <td id="h1"></td>
+            <td id="h2"></td>
+            <td id="h3"></td>
+            <td id="h4"></td>
+            <td id="h5"></td>
+        </tr>
+        <tr>
+              
+            <td id="h6"></td>
+            <td id="h7"></td>
+            <td id="h8"></td>
+            <td id="h9"></td>
+            <td id="h10"></td>
+            <td id="h11"></td>
+        </tr>
+        <tr>
+                  
+            <td id="h12"></td>
+            <td id="h13"></td>
+            <td id="h14"></td>
+            <td id="h15"></td>
+            <td id="h16"></td>
+            <td id="h17"></td>
+        </tr>
+    </table>
+    <script>
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+            if(this.readyState===4 && this.status){
+                var data = JSON.parse(this.responseText)
+                
+                console.log(data.bookstore);
+                data.bookstore.forEach((values,index)=>{
+                    var baseid = index * 6;
+                    document.getElementById("h"+(baseid+0)).innerHTML= values.category
+                    document.getElementById("h"+(baseid+1)).innerHTML=values.language
+                    document.getElementById("h"+(baseid+2)).innerHTML=values.title
+                    document.getElementById("h"+(baseid+3)).innerHTML= values.author
+                    document.getElementById("h"+(baseid+4)).innerHTML=values.price
+                    document.getElementById("h"+(baseid+5)).innerHTML=values.discount
+
+                })
+            }
+        }
+        xmlhttp.open("GET","json_demo2.txt",true);
+        xmlhttp.send();
+    </script>
+</body>
+</html>

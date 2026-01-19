@@ -1,0 +1,25 @@
+<!-- Retrieving Data -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Retrieving Data Example</title>
+</head>
+<body>
+
+<h2>Retrieved Employee Name</h2>
+
+<p id="demo"></p>
+
+<script>
+    // Step 1: Retrieve JSON data from localStorage
+    var text = localStorage.getItem("testing");
+
+    // Step 2: Convert JSON string to JavaScript object
+    var obj = JSON.parse(text);
+
+    // Step 3: Display retrieved data
+    document.getElementById("demo").innerHTML = obj.name;
+</script>
+
+</body>
+</html>

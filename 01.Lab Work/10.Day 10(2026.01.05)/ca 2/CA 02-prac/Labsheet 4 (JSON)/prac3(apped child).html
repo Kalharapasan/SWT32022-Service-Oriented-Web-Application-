@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+        var values = localStorage.getItem("details");
+        console.log(values);
+
+       var  jsformat = JSON.parse(values)
+    //    console.log(jsformat.name);
+
+        var tag1 = document.createElement("h1");
+        tag1.textContent = jsformat.name;
+        document.body.appendChild(tag1);
+
+        var tag2 = document.createElement("h2");
+        tag2.textContent = jsformat.age;
+        document.body.appendChild(tag2);
+        
+     </script>
+</body>
+</html>

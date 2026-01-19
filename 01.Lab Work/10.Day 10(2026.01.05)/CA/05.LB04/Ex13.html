@@ -1,0 +1,19 @@
+<!-- JSON Date Parsing -->
+ <!DOCTYPE html>
+<html>
+<body>
+
+<h3>JSON Date Test</h3>
+<p id="demo"></p>
+
+<script>
+var text = '{"name":"John","dob":"2000-12-14"}';
+var obj = JSON.parse(text);
+obj.dob = new Date(obj.dob);
+
+document.getElementById("demo").innerHTML =
+obj.name + "<br>" + obj.dob;
+</script>
+
+</body>
+</html>

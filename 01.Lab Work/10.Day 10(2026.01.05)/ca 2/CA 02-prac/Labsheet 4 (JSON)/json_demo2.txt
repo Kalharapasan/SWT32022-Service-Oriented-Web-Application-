@@ -1,0 +1,28 @@
+{
+    "bookstore":[
+       {
+                    "category":"fiction",
+                    "language":"English",
+                    "title":"The Alchemist",
+                    "author":"Paulo Coelho",
+                    "price":12.99,
+                    "discount":10
+                
+                },
+                {
+                    "category": "Programming",
+                    "language": "English",
+                    "title": "Learning XML",
+                    "author": "Erik T. Ray",
+                    "price": 39.95
+                },
+                {
+                    "category": "Science",
+                    "language": "English",
+                    "title": "A Brief History of Time",
+                    "author": "Stephen Hawking",
+                    "price": 15.50,
+                    "discount": 5
+                }
+    ]
+}

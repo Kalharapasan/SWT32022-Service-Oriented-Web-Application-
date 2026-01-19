@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Read External XML in HTML</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    table { border-collapse: collapse; width: 80%; margin-top: 20px; }
+    th, td { border: 1px solid #555; padding: 10px; text-align: center; }
+    th { background-color: #f2f2f2; }
+  </style>
+</head>
+<body>
+
+  <h2>Car Parking Data (From cars.xml)</h2>
+
+  <table id="carTable">
+    <tr>
+      <th>Car Name</th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Type</th>
+    </tr>
+  </table>
+
+  <!-- Load XML file invisibly -->
+  <iframe id="xmlFile" src="cars.xml" style="display:none;"></iframe>
+
+  <script>
+    function displayCars() {
+      let iframe = document.getElementById("xmlFile");
+      let xmlText = iframe.contentDocument.body.textContent.trim();
+
+   
+      let parser = new DOMParser();
+      let xmlDoc = parser.parseFromString(xmlText, "text/xml");
+
+      let cars = xmlDoc.getElementsByTagName("car");
+      let table = document.getElementById("carTable");
+
+      for (let i = 0; i < cars.length; i++) {
+        let row = table.insertRow();
+        row.insertCell(0).innerHTML = cars[i].getElementsByTagName("CarName")[0].textContent;
+        row.insertCell(1).innerHTML = cars[i].getElementsByTagName("Make")[0].textContent;
+        row.insertCell(2).innerHTML = cars[i].getElementsByTagName("Model")[0].textContent;
+        row.insertCell(3).innerHTML = cars[i].getElementsByTagName("Type")[0].textContent;
+      }
+    }
+
+  
+    document.getElementById("xmlFile").addEventListener("load", displayCars);
+  </script>
+
+</body>
+</html>

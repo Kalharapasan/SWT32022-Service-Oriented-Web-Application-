@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Data</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin-bottom: 30px;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        ul {
+            padding-left: 18px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<h2>All Student Details</h2>
+<table id="dataTable">
+    <thead>
+        <tr>
+            <th>Student Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Registered</th>
+            <th>Courses</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<h2>Registered Student Details</h2>
+<table id="dataTable2">
+    <thead>
+        <tr>
+            <th>Student Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Registered</th>
+            <th>Courses</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<h2>More Than 3 Courses Students</h2>
+<table id="dataTable3">
+    <thead>
+        <tr>
+            <th>Student Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Registered</th>
+            <th>Courses</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "students.json", true);
+
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            var data = JSON.parse(xhr.responseText);
+
+            var allTable = document.querySelector("#dataTable tbody");
+            var registeredTable = document.querySelector("#dataTable2 tbody");
+            var moreThan3Table = document.querySelector("#dataTable3 tbody");
+
+            data.forEach(function (student) {
+
+                
+                var courses = Array.isArray(student.courses)
+                    ? student.courses
+                    : [student.courses];
+
+                
+                var courseList = "<ul>";
+                courses.forEach(function (course) {
+                    courseList += "<li>" + course.courseName + "</li>";
+                });
+                courseList += "</ul>";
+
+                function createRow() {
+                    var row = document.createElement("tr");
+                    row.innerHTML =
+                        "<td>" + student.studentId + "</td>" +
+                        "<td>" + student.name + "</td>" +
+                        "<td>" + student.email + "</td>" +
+                        "<td>" + student.registered + "</td>" +
+                        "<td>" + courseList + "</td>";
+                    return row;
+                }
+
+                
+                allTable.appendChild(createRow());
+
+               
+                if (student.registered === true) {
+                    registeredTable.appendChild(createRow());
+                }
+
+                
+                if (courses.length > 3) {
+                    moreThan3Table.appendChild(createRow());
+                }
+            });
+        }
+    };
+
+    xhr.send();
+</script>
+
+</body>
+</html>

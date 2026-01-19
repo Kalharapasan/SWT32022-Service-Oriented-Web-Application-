@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <table border="2px solid red">
+        <tr>
+            <th>name</th>
+            <th>age</th>
+            <th>city</th>
+        </tr>
+        <tr>
+            <td id="h1"></td>
+            <td id="h2"></td>
+            <td id="h3"></td>
+        </tr>
+    </table>
+    <script>
+        var values = localStorage.getItem("details");
+        console.log(values);
+
+        jsvalues =  JSON.parse(values);
+
+        // console.log(jsvalues.name);
+
+        document.getElementById("h1").innerHTML= jsvalues.name;
+        document.getElementById("h2").innerHTML= jsvalues.age;
+        document.getElementById("h3").innerHTML= jsvalues.city;
+        
+    </script>
+    
+</body>
+</html>

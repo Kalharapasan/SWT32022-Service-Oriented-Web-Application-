@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table border="2px solid red">
+        <tr>
+            <th>catagory</th>
+            <th>language</th>
+            <th>title</th>
+            <th>author</th>
+            <th>price</th>
+            <th>discount</th>
+        </tr>
+        <tr>
+            <td id="h0"></td>
+            <td id="h1"></td>
+            <td id="h2"></td>
+            <td id="h3"></td>
+            <td id="h4"></td>
+            <td id="h5"></td>
+        </tr>
+        <tr>
+            <td id="h6"></td>
+            <td id="h7"></td>
+            <td id="h8"></td>
+            <td id="h9"></td>
+            <td id="h10"></td>
+            <td id="h11"></td>
+        </tr>
+        <tr>
+            <td id="h12"></td>
+            <td id="h13"></td>
+            <td id="h14"></td>
+            <td id="h15"></td>
+            <td id="h16"></td>
+            <td id="h17"></td>
+        </tr>
+    </table>
+    <script>
+      var values = `{
+            "bookstore":[
+                {
+                    "category":"fiction",
+                    "language":"English",
+                    "title":"The Alchemist",
+                    "author":"Paulo Coelho",
+                    "price":12.99,
+                    "discount":10
+                
+                },
+                {
+                    "category": "Programming",
+                    "language": "English",
+                    "title": "Learning XML",
+                    "author": "Erik T. Ray",
+                    "price": 39.95
+                },
+                {
+                    "category": "Science",
+                    "language": "English",
+                    "title": "A Brief History of Time",
+                    "author": "Stephen Hawking",
+                    "price": 15.50,
+                    "discount": 5
+                }
+            ]
+        }`;
+      var data = localStorage.setItem("hello", values);
+
+      var jsformat = JSON.parse(values);
+      console.log(jsformat.bookstore[0].category);
+      console.log(jsformat);
+
+      // var arry = Object.values(jsformat);
+      // console.log(arry)
+
+        jsformat.bookstore.forEach((book,index)=>{
+            var baseId = index * 6;
+           document.getElementById("h"+(baseId+0)).innerHTML= book.category
+           document.getElementById("h"+(baseId+1)).innerHTML= book.language
+           document.getElementById("h"+(baseId+2)).innerHTML= book.title
+           document.getElementById("h"+(baseId+3)).innerHTML= book.author
+           document.getElementById("h"+(baseId+4)).innerHTML= book.price
+           document.getElementById("h"+(baseId+5)).innerHTML= book.discount
+        })
+     
+    </script>
+  </body>
+</html>

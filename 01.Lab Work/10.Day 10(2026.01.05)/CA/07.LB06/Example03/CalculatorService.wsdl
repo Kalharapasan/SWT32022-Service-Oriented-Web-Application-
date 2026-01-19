@@ -1,0 +1,32 @@
+<definitions name="CalculatorService"
+    targetNamespace="http://example.com/wsdl/CalculatorService"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="http://example.com/wsdl/CalculatorService"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <message name="AddRequest">
+        <part name="num1" type="xsd:int"/>
+        <part name="num2" type="xsd:int"/>
+    </message>
+    <message name="AddResponse">
+        <part name="result" type="xsd:int"/>
+    </message>
+
+    <portType name="Calculator_PortType">
+        <operation name="addNumbers">
+            <input message="tns:AddRequest"/>
+            <output message="tns:AddResponse"/>
+        </operation>
+    </portType>
+
+    <binding name="Calculator_Binding" type="tns:Calculator_PortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    </binding>
+
+    <service name="CalculatorService">
+        <port name="Calculator_Port" binding="tns:Calculator_Binding">
+            <soap:address location="http://localhost:8080/CalculatorService"/>
+        </port>
+    </service>
+</definitions>

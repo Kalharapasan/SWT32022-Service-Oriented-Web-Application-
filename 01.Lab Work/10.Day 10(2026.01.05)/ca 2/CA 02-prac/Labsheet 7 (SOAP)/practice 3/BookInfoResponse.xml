@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<soap:Envelope xmlns:soap="https://soap"
+               xmlns:det="https://library/book">
+
+               <soap:Header>
+               </soap:Header>
+
+               <soap:Body>
+                <det:bookdetailsRespinse>
+                    <bookId>BOOK</bookId>
+                    <bookname>hello</bookname>
+                    <year>2010</year>
+                </det:bookdetailsRespinse>
+               </soap:Body>
+</soap:Envelope>

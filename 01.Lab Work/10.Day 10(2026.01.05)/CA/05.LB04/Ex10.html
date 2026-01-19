@@ -1,0 +1,21 @@
+<!-- Loop JSON Object -->
+ <!DOCTYPE html>
+<html>
+<body>
+
+<h3>Loop JSON Object</h3>
+<p id="demo"></p>
+
+<script>
+var obj = {"name":"John","age":30,"city":"NY"};
+var text = "";
+
+for (var x in obj) {
+  text += x + " : " + obj[x] + "<br>";
+}
+
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>

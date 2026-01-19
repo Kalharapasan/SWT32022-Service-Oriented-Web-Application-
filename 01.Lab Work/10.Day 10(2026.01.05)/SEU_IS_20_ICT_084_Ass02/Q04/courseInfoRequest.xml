@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<soap:Envelope xmlns:soap="https//envelop"
+               xmlns:det="https//coure/">
+            <soap:Header>
+                <det:authentication>
+                    <det:username>abc@gamil.com</det:username>
+                    <det:password>1234</det:password>
+                </det:authentication>
+            </soap:Header>
+
+            <soap:body>
+                <det:getcourseInfo>
+                    <det:courseCode>C001</det:courseCode>
+                </det:getcourseInfo>
+            </soap:body>
+</soap:Envelope>

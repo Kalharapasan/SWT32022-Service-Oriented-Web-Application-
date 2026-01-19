@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<soap:Envelope xmlns:soap="https://soap"
+               xmlns:det="https://coures/coure">
+
+               <soap:Header>
+               </soap:Header>
+
+               <soap:Body>
+                <det:coursedetailsRespinse>
+                    <courseName>Java Programin</courseName>
+                    <credits>10</credits>
+                    <lecturerName>Dr.Kumarasinha</lecturerName>
+                </det:coursedetailsRespinse>
+               </soap:Body>
+</soap:Envelope>

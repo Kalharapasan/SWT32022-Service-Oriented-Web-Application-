@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<soap:Envelop xmlns:soap="http://schemas.xmlsoap.org/soap/"
+              xmlns:cal="https://example.com/calculator">
+        
+              <soap:Header>
+                <cal:authentication>
+                    <cal:username>abc@gamil.com</cal:username>
+                </cal:authentication>
+              </soap:Header>
+
+              <soap:Body>
+                <cal:addNumberResponse>
+                    <cal:result>30</cal:result>
+                </cal:addNumberResponse>
+              </soap:Body>
+            
+</soap:Envelop>

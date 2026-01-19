@@ -1,0 +1,16 @@
+<!-- The code given below is loading an XML document to a DOM object using XML Parser -->
+<html>
+<body>
+<p id = "txtNotice"></p>
+<script>
+    var text, parser, xmlDoc;
+    text = "<bookstore><book>" +
+           "<title>Everyday Italian</title>" +
+           "<author>Giada De Laurentiis</author>" +
+           "<year>2005</year>" +
+           "</book></bookstore>";
+    parser = new DOMParser();
+    xmlDoc = parser.parseFromString(text, "text/xml");
+</script>
+</body>
+</html>

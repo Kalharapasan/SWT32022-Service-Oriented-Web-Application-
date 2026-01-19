@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSON All In One Example</title>
+    <style>
+        body { font-family: Arial; }
+        pre { background: #f4f4f4; padding: 10px; }
+    </style>
+</head>
+<body>
+
+<h2>JSON All In One Example</h2>
+
+<div id="demo"></div>
+
+<script>
+    /* ==============================
+       JSON DATA TYPES
+    ============================== */
+
+    var jsonData = {
+        name: "John",            // string
+        age: 30,                 // number
+        isStudent: true,         // boolean
+        middleName: null,        // null
+        skills: ["HTML", "CSS", "JavaScript"], // array
+        address: {               // object
+            city: "New York",
+            country: "USA"
+        }
+    };
+
+    /* Convert JS Object to JSON */
+    var jsonString = JSON.stringify(jsonData);
+
+    /* Convert JSON to JS Object */
+    var parsedObject = JSON.parse(jsonString);
+
+    /* ==============================
+       JSON vs XML EXAMPLE
+    ============================== */
+
+    var employeesJSON = {
+        "employees": [
+            { "firstName": "John", "lastName": "Doe" },
+            { "firstName": "Anna", "lastName": "Smith" },
+            { "firstName": "Peter", "lastName": "Jones" }
+        ]
+    };
+
+    var employeesXML =
+`<root>
+    <employees>
+        <firstName>John</firstName>
+        <lastName>Doe</lastName>
+    </employees>
+    <employees>
+        <firstName>Anna</firstName>
+        <lastName>Smith</lastName>
+    </employees>
+    <employees>
+        <firstName>Peter</firstName>
+        <lastName>Jones</lastName>
+    </employees>
+</root>`;
+
+    /* ==============================
+       DISPLAY OUTPUT
+    ============================== */
+
+    document.getElementById("demo").innerHTML =
+        "<h3>JSON Object</h3><pre>" + jsonString + "</pre>" +
+
+        "<h3>Accessing JSON Values</h3>" +
+        "Name: " + parsedObject.name + "<br>" +
+        "Age: " + parsedObject.age + "<br>" +
+        "Student: " + parsedObject.isStudent + "<br>" +
+        "Middle Name: " + parsedObject.middleName + "<br>" +
+        "First Skill: " + parsedObject.skills[0] + "<br>" +
+        "City: " + parsedObject.address.city +
+
+        "<h3>JSON vs XML</h3>" +
+        "<b>JSON:</b><pre>" + JSON.stringify(employeesJSON, null, 2) + "</pre>" +
+        "<b>XML:</b><pre>" + employeesXML + "</pre>";
+</script>
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+               xmlns:tns="http://example.com/wsdl/HelloService">
+   <soap:Body>
+      <tns:sayHello>
+         <firstName>John</firstName>
+      </tns:sayHello>
+   </soap:Body>
+</soap:Envelope>
